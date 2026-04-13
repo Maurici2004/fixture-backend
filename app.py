@@ -64,5 +64,19 @@ def actualizar_partido(id):
         
     return {"Error": "Partido no encontrado"}, 404
 
+@app.route("/partidos/<int:id>/resultado", methods=["PUT"]) #Endpoint para actualizar solo el resultado de un partido
+def actualizar_resultado(id):
+    data = request.get_json()
+
+    for p in partidos:
+        if p["id"] == id:
+            p["resultado"] = {
+                "goles_local": data.get("goles_local"),
+                "goles_visitante": data.get("goles_visitante")
+            }
+            return jsonify(p), 200
+        
+    return {"Error": "Partido no encontrado"}, 404
+
 if __name__ == "__main__":
     app.run(debug=True)
