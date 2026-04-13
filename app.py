@@ -16,6 +16,8 @@ def crear_partido():
         "id": contador_partido,
         "equipo_local": data.get("equipo_local"),
         "equipo_visitante": data.get("equipo_visitante"),
+        "estadio": data.get("estadio"),
+        "ciudad": data.get("ciudad"),
         "fecha": data.get("fecha"),
         "fase": data.get("fase"),
         "resultado": None 
@@ -57,6 +59,8 @@ def actualizar_partido(id):
 
             p["equipo_local"] = data.get("equipo_local")
             p["equipo_visitante"] = data.get("equipo_visitante")
+            p["estadio"] = data.get("estadio")
+            p["ciudad"] = data.get("ciudad")
             p["fecha"] = data.get("fecha")
             p["fase"] = data.get("fase")
 
